@@ -1,0 +1,1 @@
+<button class='lg:w-fit w-full px-[24px] py-[16px] rounded-[8px] font-[500] text-[16px] text-white bg-[#8A24F3]'>Button 1</button>
