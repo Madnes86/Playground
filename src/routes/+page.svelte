@@ -1,59 +1,18 @@
-<script lang="ts">
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcomeFallback from '$lib/images/svelte-welcome.png';
+<script lang='ts'>
+	let { 
+		textPositionX = 'left' 
+	} : {
+		textPositionX : string
+	} = $props()
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
-
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcomeFallback} alt="Welcome" />
-			</picture>
+<div class='py-[24px] w-[1180px] border flex gap-[64px] items-center'>
+	<img src='image.png' alt='' class='w-1/2 rounded-[20px]'>
+	<div class='w-[calc(50%-64px)] flex flex-col gap-[16px]'>
+		<span class='flex flex-col gap-[12px]'>
+			<h1 class='font-[500] text-[36px]'>Heading</h1>
+			<p class='text-[20px]'>Short Discription</p>
 		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
+		<button class='w-fit px-[24px] py-[16px] rounded-[8px] font-[500] text-[16px] text-white bg-[#8A24F3]'>Button 1</button>
+	</div>
+</div>
