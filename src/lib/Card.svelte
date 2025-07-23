@@ -1,11 +1,12 @@
 <script lang='ts'>
 	import Button from '$lib/Button.svelte';
+	import type { Snippet } from 'svelte';
 	let { 
-		isButton = true,
+		children,
 		isReverse = true
 	} : {
-		isButton : boolean
-		isReverse : boolean
+		children : Snippet
+		isReverse? : boolean
 	} = $props()
 </script>
 
@@ -16,11 +17,11 @@
 			<h1 class='font-[500] lg:text-[36px] text-[24px]'>Heading</h1>
 			<p class='lg:text-[20px] text-[16px]'>Short Discription</p>
 		</span>
-		<div class='{isButton ? isReverse ? 'lg:flex hidden' : 'flex' : 'hidden'}'>
-			<Button />
+		<div class='{isReverse ? 'lg:flex hidden' : 'flex'}'>
+			{@render children()}
 		</div>
 	</div>
-	<div class='{isReverse && isButton ? 'lg:hidden flex w-full' : 'hidden'}'>
-		<Button />
+	<div class='{isReverse ? 'lg:hidden flex w-full' : 'hidden'}'>
+		{@render children()}
 	</div>
 </div>
