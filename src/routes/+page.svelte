@@ -1,6 +1,6 @@
 <script lang='ts'>
-	import Card from '$lib/Card.svelte';
+	import Cards from '$lib/Cards.svelte';
 
 </script>
 
-<Card />
+<Cards />
