@@ -1,6 +1,6 @@
 <script lang='ts'>
 	import Block1 from '$lib/Block1.svelte';
-	import Block2 from '$lib/Block2.svelte';
+	import Block3 from '$lib/Block3.svelte';
 	import Button from '$lib/Button.svelte';
 
 	const blocks : { title: string, description: string, imageUrl: string}[] = [
@@ -15,5 +15,5 @@
 <!-- Block 1 -->
 <Block1 title={blocks[0].title} />
 
-<!-- Block 2 -->
-<Block2 title='title' blocks={blocks}/>
+<!-- Block 3 -->
+<Block3 title='title' blocks={blocks}/>
