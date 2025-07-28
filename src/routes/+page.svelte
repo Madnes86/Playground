@@ -1,7 +1,6 @@
 <script lang='ts'>
 	import Block1 from '$lib/Block1.svelte';
 	import Block3 from '$lib/Block3.svelte';
-	import Button from '$lib/Button.svelte';
 
 	const blocks : { title: string, description: string, imageUrl: string}[] = [
         { title: 'Sign up or log in', description: 'Log in to an existing MTrading account or sign up', imageUrl: 'card-2.png' },
