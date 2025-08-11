@@ -10,11 +10,11 @@
 
 <!-- <List /> -->
 
-<Modal bind:isShow >
+<Modal bind:isShow closeable={() => isShow = false}>
     {#snippet header()}
         <h1>header</h1>
     {/snippet}
-    <p class='whitespace-nowrap'>content body</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam autem alias fugiat aperiam recusandae mollitia ratione consequuntur nostrum ab quasi.</p>
     {#snippet footer()}
         <Button onclick={close}>close</Button>
     {/snippet}
