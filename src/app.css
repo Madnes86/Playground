@@ -9,6 +9,6 @@
 .click:hover {
     opacity: 0.7;
 }
-.click:before {
-    opacity: 0.5;
+.click:hover:active {
+    filter: brightness(0.9);
 }

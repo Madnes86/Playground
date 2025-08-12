@@ -1,23 +1,30 @@
 <script lang="ts">
-    import List from '$lib/List.svelte';
     import Modal from '$lib/Modal.svelte';
     import Button from '$lib/Button.svelte';
+    import Preloader from '$lib/Preloader.svelte';
+	import { onMount } from 'svelte';
 
-    let isShow: boolean = $state(true);
+    let isShow = $state(true);
+    let isLoading = $state(true);
 
-    const close = () => isShow = false
+    onMount(() => {
+        setTimeout(() => {
+           isLoading = false 
+        }, 2_000)
+    });
 </script>
 
-<!-- <List /> -->
-
-<Modal bind:isShow closeable={() => isShow = false}>
+<!-- <Modal bind:isShow {isLoading} position='top' onclose={() => alert('hello test')}>
     {#snippet header()}
         <h1>header</h1>
     {/snippet}
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam autem alias fugiat aperiam recusandae mollitia ratione consequuntur nostrum ab quasi.</p>
     {#snippet footer()}
-        <Button onclick={close}>close</Button>
+        <Button href='/'>pay</Button>
     {/snippet}
 </Modal>
 
 <Button onclick={() => isShow = true}>onShow</Button>
+<Button>test</Button> -->
+
+<Preloader />

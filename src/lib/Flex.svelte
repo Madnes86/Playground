@@ -12,6 +12,6 @@
     } = $props();
 </script>
 
-<div class:flex-col={col} class="flex justify-between items-center {rest.class}">
+<div class:flex-col={col} class="flex justify-between items-center gap-2 {rest.class}">
     {@render children?.()}
 </div>
