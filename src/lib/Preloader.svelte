@@ -3,18 +3,18 @@
 
     let {
         isShow = true,
-        isActive,
-        width = '50'
+        isActive = true,
+        ...rest
     } : {
         isShow?:   boolean
         isActive?: boolean
-        width?:    string
+        class?:    string
     } = $props();
 
 </script>
-<!-- TODO: Доделать width -->
+
 {#if isShow}
-    <Flex col class='w-{width} items-start'>
+    <Flex col class='w-full items-start {rest.class}'>
         {#each {length: 3}, i}
             <div class:animate-pulse={isActive} class='{i == 2 ? 'w-2/3' : 'w-full'} line'></div>
         {/each}

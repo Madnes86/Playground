@@ -14,17 +14,14 @@
     });
 </script>
 
-<!-- <Modal bind:isShow {isLoading} position='top' onclose={() => alert('hello test')}>
+<Modal bind:isShow {isLoading} position='top' onclose={() => alert('hello test')}>
     {#snippet header()}
-        <h1>header</h1>
+        <h1>Header</h1>
     {/snippet}
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam autem alias fugiat aperiam recusandae mollitia ratione consequuntur nostrum ab quasi.</p>
+    <Preloader class='!w-50'/>
     {#snippet footer()}
-        <Button href='/'>pay</Button>
+        <Button href='/' variant='link'>pay</Button>
     {/snippet}
 </Modal>
 
-<Button onclick={() => isShow = true}>onShow</Button>
-<Button>test</Button> -->
-
-<Preloader />
+<Button onclick={() => isShow = true} variant='link'>onShow</Button>

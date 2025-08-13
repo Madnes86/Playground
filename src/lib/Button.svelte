@@ -1,6 +1,10 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
 
+    // TODO: Где мне хранить типы?
+    type Variant = 'primary' | 'outline' | 'filled' | 'link'
+    type Size = 'sm' | 'lg' | 'xl'
+
     let {
         children,
         onclick,
@@ -10,20 +14,21 @@
         ...rest
     } : {
         children: Snippet
+        // TODO: проверить onclick
         onclick?: (e: MouseEvent) => void 
         href?:    string
-        variant?: 'primary' | 'outline' | 'filled' | 'link'
-        rounded?:  'sm' | 'lg' | 'xl'
+        variant?: Variant
+        rounded?: Size
         class?:   string
     } = $props();
 </script>
 
 {#if href}
-    <a {href} class='click button {variant} rounded-{rounded}'>
+    <a {href} class='click button {variant} rounded-{rounded} {rest.class}'>
         {@render children()}
     </a>
 {:else}
-    <button onclick={onclick} class='click button {variant} rounded-{rounded} {rest.class}'>
+    <button {onclick} class='click button {variant} rounded-{rounded} {rest.class}'>
         {@render children()}
     </button>
 {/if}
