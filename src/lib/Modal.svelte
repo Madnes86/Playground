@@ -1,6 +1,5 @@
 <script lang='ts'>
     import Flex from '$lib/Flex.svelte';
-    import Button from '$lib/Button.svelte';
 	import type { Snippet } from "svelte";
 
     let {
@@ -9,6 +8,7 @@
         isLoading = false,
         isCross = true,
         isOverlay = true,
+        isScroll = false,
         position = 'center',
         onclose,
         header,
@@ -20,6 +20,7 @@
         isLoading?:  boolean
         isCross?:    boolean
         isOverlay?:  boolean
+        isScroll?:   boolean
         position?:   'center' | 'top'
         onclose?:    Function
         header?:     Snippet
@@ -35,16 +36,20 @@
     function keyDown(e: KeyboardEvent): void {
         e.key == 'Escape' && close()
     }
+    $effect(() => {
+        document.body.style.overflow = isShow ? isScroll ? '' : ' hidden' : ''
+
+    });
 </script>
 
-<svelte:window on:keydown={keyDown}/>
+<svelte:window on:keydown={keyDown} />
 
 {#if isShow}
-    <!-- Какие значения лучше использовать % | vw / vh? -->
+    <!-- TODO:Какие значения лучше использовать % | vw / vh? -->
     {#if isOverlay} 
         <button onclick={close} aria-label='wrapper' class='fixed top-0 left-0 size-full z-3 bg-black/20'></button>
     {/if}
-    <div class:shadow-xl={!isOverlay} class='flex flex-col absolute {position} w-fit bg-white max-200 p-4 gap-2 z-3 rounded-2xl'>
+    <div class:shadow-xl={!isOverlay} class='flex flex-col fixed {position} w-fit bg-white max-200 p-4 gap-2 z-3 rounded-2xl'>
         <Flex class='w-full'>
             {@render header?.()}
             {#if isCross}
